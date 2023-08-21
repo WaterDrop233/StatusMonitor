@@ -1,6 +1,5 @@
 import psutil
 import GPUtil
-import tkinter
 
 def status():
     def GetRAM():
@@ -22,32 +21,6 @@ def status():
             GPUStatus = "未检测到显卡"
         return GPUStatus
 
-    return GetCPU() + "\n" + GetRAM() + "\n" + GetGPU()
-
-main = tkinter.Tk()
-main.title("StatusMonitor")
-height = main.winfo_screenheight()
-width = main.winfo_screenwidth()
-size = str(int(width / 5)) + "x" + str(int(height / 4))
-main.geometry(size)
-
-print(size)
-
-menubar = tkinter.Menu(main)
-filemenu = tkinter.Menu(menubar, tearoff=0)
-
-var = tkinter.StringVar()
+    return str(GetCPU() + "\n" + GetRAM() + "\n" + GetGPU())
 
 
-def show():
-    global var
-    text = status()
-    main.after(100, show)
-    var.set(text)
-
-
-show()
-l = tkinter.Label(main, textvariable=var, font=('Arial', int(width / 75)))
-l.pack()
-
-main.mainloop()

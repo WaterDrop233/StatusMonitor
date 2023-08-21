@@ -9,7 +9,7 @@
 
 
 
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtWidgets
 
 
 class Ui_Form(object):
@@ -20,12 +20,9 @@ class Ui_Form(object):
         self.label.setGeometry(QtCore.QRect(0, 0, 500, 300))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-
-
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "aaaaa"))
+        Form.setWindowTitle(_translate("Form", "StatusMonitor"))

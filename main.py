@@ -2,6 +2,7 @@ import sys
 from function import status
 from mwindow import Ui_Form
 from PySide2.QtCore import QTimer
+from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QApplication, QMainWindow
 
 
@@ -12,7 +13,9 @@ class MyMainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_label_text)
-        self.timer.start(100)  # 定时器每隔1秒触发一次
+        self.timer.start(1000)  # 定时器每隔1秒触发一次
+        icon = QIcon("LOGO/LOGO.ico")
+        self.setWindowIcon(icon)
 
     def update_label_text(self):
         text = status()

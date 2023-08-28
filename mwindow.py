@@ -18,7 +18,6 @@ class Ui_Form(object):
         Form.resize(500, 300)
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(0, 0, 500, 300))
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         font = QFont()
         font.setPointSize(25)  # 设置字号为20

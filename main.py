@@ -1,13 +1,13 @@
 import sys
 import psutil
 import GPUtil
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from mwindow import Ui_Form
-from PyQt5.QtCore import QTimer
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import *
 
 
-def status(self):
+def status():
     def GetRAM():
         RAMFree = str(round(psutil.virtual_memory().free / 1024 ** 3, 1))
         RAMUsed = str(round(psutil.virtual_memory().used / 1024 ** 3, 1))
@@ -26,7 +26,7 @@ def status(self):
             GPUStatus = "未检测到显卡"
         return GPUStatus
 
-    return str(GetCPU() + "\n" + GetRAM() + "\n" + GetGPU())
+    return GetCPU() + "\n" + GetRAM() + "\n" + GetGPU()
 
 
 class MyMainWindow(QMainWindow):
@@ -36,7 +36,7 @@ class MyMainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_label_text)
-        self.timer.start(1000)  # 定时器每隔1秒触发一次
+        self.timer.start(500)
         icon = QIcon("LOGO/LOGO.ico")
         self.setWindowIcon(icon)
 
